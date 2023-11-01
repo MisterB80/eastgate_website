@@ -1,0 +1,31 @@
+---
+import Button from '../components/Button.astro';
+
+const menuitems = [
+   {
+      title: 'About',
+      path: '/about',
+   },
+   {
+      title: 'Blog',
+      path: '/blog',
+   },
+];
+---
+
+<div class="hidden w-full md:flex md:items-center md:w-auto" id="menu">
+   <ul class="pt-4 text-base text-primary-500 md:flex md:justify-between md:pt-0 font-bold">
+      {
+         menuitems.map((item, index) => (
+            <li>
+               <a href={item.path} class="md:p-4 py-2 block hover:text-primary-700">
+                  {item.title}
+               </a>
+            </li>
+         ))
+      }
+   </ul>
+   <div class="w-fit md:w-auto">
+      <Button text="Contact" link="./#getstarted" colour="primary" variant="solid" class="m-4" />
+   </div>
+</div>

@@ -1,0 +1,10 @@
+---
+import { storyblokEditable } from '@storyblok/astro';
+import SectionHeader from '../components/SectionHeader.astro';
+
+const { blok } = Astro.props;
+---
+
+<div {...storyblokEditable(blok)}>
+   <SectionHeader heading={blok.heading} subheading={blok.subheading} colour={blok.colour} />
+</div>

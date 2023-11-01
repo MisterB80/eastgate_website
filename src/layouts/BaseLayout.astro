@@ -1,0 +1,49 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width" />
+      <link rel="icon" type="image/x-icon" href="/favicon.svg" />
+      <title>Eastgate Digital</title>
+   </head>
+   <body class="flex flex-col min-h-screen">
+      <div class="flex-grow">
+         <Header />
+         <slot />
+      </div>
+      <Footer />
+   </body>
+</html>
+<script>
+   // Add smooth scroll behavior to all links with "#" in the href
+   document.querySelectorAll('a').forEach((anchor) => {
+      anchor.addEventListener('click', function (e) {
+         const href = anchor.getAttribute('href');
+
+         if (href && href.includes('#')) {
+            e.preventDefault();
+
+            const targetId = href.split('#').pop(); // Get the target ID
+
+            if (!targetId) return;
+
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+               window.scrollTo({
+                  top: targetElement.offsetTop,
+                  behavior: 'smooth',
+               });
+            } else {
+               // Handle the case where the target element does not exist on the current page
+               // For example, you can navigate to the appropriate page here
+               window.location.href = href; // Redirect to the page specified in href
+            }
+         }
+      });
+   });
+</script>

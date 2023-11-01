@@ -1,0 +1,18 @@
+---
+import { storyblokEditable } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+
+const { blok } = Astro.props;
+---
+
+<section {...storyblokEditable(blok)} class="bg-primary-500">
+   <div class="container px-6 py-16 mx-auto">
+      <div class="flex flex-col space-y-20">
+         {
+            blok.row?.map((blok: any, i: any) => {
+               return <StoryblokComponent blok={blok} row={i + 1} />;
+            })
+         }
+      </div>
+   </div>
+</section>

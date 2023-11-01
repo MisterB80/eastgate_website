@@ -1,0 +1,31 @@
+---
+import { storyblokEditable, useStoryblokApi } from '@storyblok/astro';
+import TagFilter from '../components/react/TagFilter';
+
+const storyblokApi = useStoryblokApi();
+
+const { data } = await storyblokApi.get('cdn/stories', {
+   version: import.meta.env.DEV ? 'draft' : 'published',
+   content_type: 'blogPost',
+   is_startpage: false,
+});
+
+const posts = data.stories.map((story: any) => {
+   return {
+      ...story,
+      date: new Date(story.published_at).toLocaleDateString('en-GB', { dateStyle: 'full' }),
+   };
+});
+
+const response = await storyblokApi.get('cdn/tags/', {
+   version: import.meta.env.DEV ? 'draft' : 'published',
+   starts_with: 'blog/',
+});
+const fetchedTags = response.data ? response.data.tags : [];
+
+const { blok } = Astro.props;
+---
+
+<section {...storyblokEditable(blok)}>
+   <TagFilter tags={fetchedTags} initialPosts={posts} client:load />
+</section>

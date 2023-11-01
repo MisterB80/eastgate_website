@@ -1,0 +1,17 @@
+---
+import { storyblokEditable } from '@storyblok/astro';
+
+const { blok, row } = Astro.props;
+
+---
+
+<div {...storyblokEditable(blok)} class="w-full flex flex-col-reverse md:even:flex-row md:odd:flex-row-reverse">
+  <div class="md:w-2/3 flex flex-col">
+    <span class="w-20 h-2 mb-16 bg-white"> </span>
+    <h2 class="text-4xl md:text-6xl text-white font-bold mb-5">{blok.title}</h2>
+    <p class="md:text-lg text-white">{blok.subtitle}</p>
+  </div>
+  <div class="hidden md:block flex-auto">
+    <h2 class="text-[15rem] text-white font-black text-center leading-none font-serif">{row}</h2>
+  </div>
+</div>

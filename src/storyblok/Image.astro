@@ -1,0 +1,11 @@
+---
+import { storyblokEditable } from '@storyblok/astro'
+ 
+const { blok } = Astro.props
+---
+ 
+<div {...storyblokEditable(blok)}>
+    <a href={blok.link.url}>
+        <img class=" w-40 md:w-32" alt={blok.image.alt} src={blok.image.filename}/>
+    </a>
+</div>

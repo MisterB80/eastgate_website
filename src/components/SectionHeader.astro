@@ -1,0 +1,39 @@
+---
+const { heading, subheading, colour } = Astro.props;
+
+
+let backgroundColour = '';
+let textColour = '';
+
+switch (colour) {
+   case 'primary':
+      backgroundColour = 'bg-primary-500';
+      textColour = 'text-primary-500';
+      break;
+   case 'secondary':
+      backgroundColour = 'bg-secondary-700';
+      textColour = 'text-secondary-700';
+      break;
+   case 'tertiary':
+      backgroundColour = 'bg-tertiary-500';
+      textColour = 'text-tertiary-500';
+      break;
+   case 'quaternary':
+      backgroundColour = 'bg-quaternary-500';
+      textColour = 'text-quaternary-500';
+      break;
+    default:
+      backgroundColour = 'bg-gray-800';
+      textColour = 'text-gray-800';
+      break;
+}
+
+---
+
+<div class="flex m-8">
+   <div class="flex flex-col md:w-2/3 md:mx-auto">
+      <span class=`w-20 h-2 mb-12 ${backgroundColour}`> </span>
+      <h2 class=`text-4xl md:text-6xl uppercase font-bold ${textColour}`>{heading}</h2>
+      <p class="mt-6 text-md md:text-sm text-gray-500">{subheading}</p>
+   </div>
+</div>

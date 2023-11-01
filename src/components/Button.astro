@@ -1,0 +1,46 @@
+---
+const { text, link, colour, variant, newTab } = Astro.props;
+
+let classText = '';
+let borderColour = '';
+let backgroundColour = '';
+let textColour = '';
+
+switch (colour) {
+   case 'primary':
+      borderColour = 'border-primary-500';
+      backgroundColour = 'bg-primary-500';
+      textColour = 'text-primary-500';
+      break;
+   case 'secondary':
+      borderColour = 'border-secondary-500';
+      backgroundColour = 'bg-secondary-500';
+      textColour = 'text-secondary-500';
+      break;
+   case 'tertiary':
+      borderColour = 'border-tertiary-500';
+      backgroundColour = 'bg-tertiary-500';
+      textColour = 'text-tertiary-500';
+      break;
+   case 'quaternary':
+      borderColour = 'border-quaternary-500';
+      backgroundColour = 'bg-quaternary-500';
+      textColour = 'text-quaternary-500';
+      break;
+}
+
+switch (variant) {
+   case 'wire':
+      classText = `relative inline-block h-full w-full border-2 ${borderColour} bg-white px-3 py-1 text-base font-bold ${textColour} transition ease-in duration-100 transform hover:translate-y-1 hover:translate-x-1 active:translate-y-0 active:translate-x-0 text-center`;
+      break;
+   case 'solid':
+   default:
+      classText = `relative inline-block h-full w-full border-2 ${borderColour} ${backgroundColour} px-3 py-1 text-base font-bold text-white transition ease-in duration-100 transform hover:translate-y-1 hover:translate-x-1 active:translate-y-0 active:translate-x-0 text-center`;
+      break;
+}
+---
+
+<a class="relative mx-2 block" href={link} target={newTab ? "_blank" : ''}>
+   <span class="absolute top-0 left-0 mt-1 ml-1 h-full w-full bg-black"></span>
+   <span class={classText}>{text}</span>
+</a>

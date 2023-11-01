@@ -1,0 +1,26 @@
+---
+import { useStoryblokApi } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CookieConsent from '../components/react/CookieConsent';
+
+const { slug } = Astro.params;
+
+const storyblokApi = useStoryblokApi();
+
+const { data } = await storyblokApi.get(`cdn/stories/${slug === undefined ? 'home' : slug}`, {
+   version: import.meta.env.DEV ? 'draft' : 'published',
+});
+
+const story = data.story;
+
+if (story.content.component === 'blogPost') {
+   story.content.tags = story.tag_list;
+   story.content.date = new Date(story.published_at).toLocaleDateString('en-GB', { dateStyle: 'full' });
+}
+---
+
+<BaseLayout>
+    <CookieConsent client:load/>
+   <StoryblokComponent blok={story.content} />
+</BaseLayout>
