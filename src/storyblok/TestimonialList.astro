@@ -10,7 +10,7 @@ const { blok } = Astro.props;
    <div class="pattern-texture-primary-500/30 py-10">
       <div class="">
          <SectionHeader heading={blok.heading} subheading={blok.subheading} colour="secondary" />
-         <div class="flex flex-col justify-evenly w-full gap-4 p-8 mb-8 lg:flex-row lg:mb-0 flex-between">
+         <div class="flex flex-col flex-wrap gap-4 p-8 mb-8 lg:flex-row lg:mb-0 justify-center">
             {
                blok.items?.map((blok: any) => {
                   return <StoryblokComponent blok={blok} />;

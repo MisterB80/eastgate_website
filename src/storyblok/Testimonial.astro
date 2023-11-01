@@ -4,7 +4,7 @@ import { storyblokEditable } from '@storyblok/astro';
 const { blok } = Astro.props;
 ---
 
-<div {...storyblokEditable(blok)} class="bg-white lg:w-96 shadow-lg mx-auto rounded px-4 py-10">
+<div {...storyblokEditable(blok)} class="bg-white lg:w-96 shadow-lg rounded px-4 py-10">
    <p class="text-gray-600">
       <span class="text-lg font-bold text-tertiary-500">“&nbsp;</span>
       {blok.testimonial}
