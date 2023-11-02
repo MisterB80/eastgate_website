@@ -1,6 +1,16 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+interface BaseLayoutProps {
+   metaData: {
+      title: string;
+      description: string;
+      image: string;
+   };
+}
+
+const { metaData } = Astro.props as BaseLayoutProps;
 ---
 
 <html lang="en">
@@ -8,7 +18,20 @@ import Footer from '../components/Footer.astro';
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width" />
       <link rel="icon" type="image/x-icon" href="/favicon.svg" />
-      <title>Eastgate Digital</title>
+
+      <title>{metaData.title}</title>
+      <meta name="description" content={metaData.description} />
+
+      <!-- Open Graph Tags -->
+      <meta property="og:title" content={metaData.title} />
+      <meta property="og:description" content={metaData.description} />
+      <meta property="og:image" content={metaData.image} />
+
+      <!-- Twitter Card Tags -->
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={metaData.title} />
+      <meta name="twitter:description" content={metaData.description} />
+      <meta name="twitter:image" content={metaData.image} />
    </head>
    <body class="flex flex-col min-h-screen">
       <div class="flex-grow">

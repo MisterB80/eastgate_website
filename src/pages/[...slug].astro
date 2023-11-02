@@ -4,6 +4,12 @@ import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CookieConsent from '../components/react/CookieConsent';
 
+type MetaData = {
+   title: string;
+   description: string;
+   image: string;
+};
+
 const { slug } = Astro.params;
 
 const storyblokApi = useStoryblokApi();
@@ -18,9 +24,27 @@ if (story.content.component === 'blogPost') {
    story.content.tags = story.tag_list;
    story.content.date = new Date(story.published_at).toLocaleDateString('en-GB', { dateStyle: 'full' });
 }
+
+function getMetaData(story: any): MetaData {
+   if (story.content.component === 'blogPost') {
+      return {
+         title: story.content.title,
+         description: story.content.description,
+         image: `${story.content.image.filename}/m/1200x0`,
+      };
+   } else {
+      return {
+         title: `Eastgate Digital - ${story.name}`,
+         description: 'Your technology partner for the modern web. Helping you to grow your ideas, concepts and processes.',
+         image: `${import.meta.env.BASE_URL}eastgate_logo.png`, // A generic image for non-blog pages
+      };
+   }
+}
+
+const metaData = getMetaData(story);
 ---
 
-<BaseLayout>
-    <CookieConsent client:load/>
+<BaseLayout metaData={metaData}>
+   <CookieConsent client:load />
    <StoryblokComponent blok={story.content} />
 </BaseLayout>
