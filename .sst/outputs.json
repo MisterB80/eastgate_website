@@ -1,3 +1,5 @@
 {
-  "neil-dev-eastgate-website-Site": {}
+  "prod-eastgate-website-Site": {
+    "url": "https://dv75g4o5n2exu.cloudfront.net"
+  }
 }

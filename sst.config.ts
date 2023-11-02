@@ -11,7 +11,12 @@ export default {
   },
   stacks(app) {
     app.stack(function Site({ stack }) {
-      const site = new AstroSite(stack, "site");
+      const site = new AstroSite(stack, "site", {
+        customDomain: {
+          domainName: "eastgatedigital.co.uk",
+          domainAlias: "www.eastgatedigital.co.uk"
+        }
+      });
       stack.addOutputs({
         url: site.url,
       });
