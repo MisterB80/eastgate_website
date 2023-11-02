@@ -246,3 +246,11 @@
 2023-11-02T11:25:27.239Z +156514ms [debug] Publishing event {"type":"file.changed","properties":{"file":"/Users/neilbalcombe/eastgate-digital/eastgate-website/src/layouts/BaseLayout.astro","relative":"src/layouts/BaseLayout.astro"},"sourceID":"016a6808d4bbdacd906035d972e96e39"}
 2023-11-02T11:26:11.129Z +43890ms [debug] Publishing event {"type":"file.changed","properties":{"file":"/Users/neilbalcombe/eastgate-digital/eastgate-website/src/pages/[...slug].astro","relative":"src/pages/[...slug].astro"},"sourceID":"016a6808d4bbdacd906035d972e96e39"}
 2023-11-02T11:29:40.219Z +209090ms [debug] Publishing event {"type":"file.changed","properties":{"file":"/Users/neilbalcombe/eastgate-digital/eastgate-website/src/pages/[...slug].astro","relative":"src/pages/[...slug].astro"},"sourceID":"016a6808d4bbdacd906035d972e96e39"}
+2023-11-02T13:47:28.075Z +8267856ms [debug] IoT error {"errno":-54,"code":"ECONNRESET","syscall":"read","type":"error","target":{"_events":{},"_eventsCount":0,"readyState":3,"bytesReceived":97,"extensions":null,"protocol":"mqttv3.1","_binaryType":"arraybuffer","_closeFrameReceived":false,"_closeFrameSent":false,"_closeMessage":"","_closeTimer":null,"_finalized":true,"_closeCode":1006,"_receiver":null,"_sender":null,"_socket":null,"_ultron":null,"protocolVersion":13,"_isServer":false,"url":"wss://a3625g4mj32b67-ats.iot.eu-west-2.amazonaws.com/mqtt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIATG6K52QH2K6XCFDB%2F20231102%2Feu-west-2%2Fiotdevicegateway%2Faws4_request&X-Amz-Date=20231102T105755Z&X-Amz-SignedHeaders=host&X-Amz-Signature=05d49a7567bb37eeda4d7fb073622957b749a48f3f04538e6db5e45855278bb5","_req":null}}
+2023-11-02T13:47:28.078Z     +3ms [debug] IoT closed
+2023-11-02T13:47:29.080Z  +1002ms [debug] IoT reconnected
+2023-11-02T13:47:29.224Z   +144ms [debug] IoT connected
+2023-11-02T14:50:13.917Z +3764693ms [debug] IoT closed
+2023-11-02T14:50:14.919Z  +1002ms [debug] IoT reconnected
+2023-11-02T14:50:15.053Z   +134ms [debug] IoT connected
+2023-11-02T15:15:10.165Z +1495112ms [debug] Publishing event {"type":"file.changed","properties":{"file":"/Users/neilbalcombe/eastgate-digital/eastgate-website/.github/workflows/sst-deploy.yml","relative":".github/workflows/sst-deploy.yml"},"sourceID":"016a6808d4bbdacd906035d972e96e39"}
