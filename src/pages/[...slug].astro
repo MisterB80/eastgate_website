@@ -36,10 +36,12 @@ function getMetaData(story: any): MetaData {
       return {
          title: `Eastgate Digital - ${story.name}`,
          description: 'Your technology partner for the modern web. Helping you to grow your ideas, concepts and processes.',
-         image: `${import.meta.env.BASE_URL}eastgate_logo.png`, // A generic image for non-blog pages
+         image: `${Astro.url.origin}/eastgate_logo.png`, // A generic image for non-blog pages
       };
    }
 }
+
+console.log(Astro.url.origin);
 
 const metaData = getMetaData(story);
 ---
