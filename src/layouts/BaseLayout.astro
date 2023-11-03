@@ -11,6 +11,18 @@ interface BaseLayoutProps {
 }
 
 const { metaData } = Astro.props as BaseLayoutProps;
+
+const isDev = import.meta.env.DEV;
+const gaTrackingId = 'G-5TRLEN32BY';
+const gaScript = `
+  <script async src="https://www.googletagmanager.com/gtag/js?id=${gaTrackingId}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '${gaTrackingId}');
+  </script>
+`;
 ---
 
 <html lang="en">
@@ -32,7 +44,10 @@ const { metaData } = Astro.props as BaseLayoutProps;
       <meta name="twitter:title" content={metaData.title} />
       <meta name="twitter:description" content={metaData.description} />
       <meta name="twitter:image" content={metaData.image} />
+
+      {!isDev && gaTrackingId ? <Fragment set:html={gaScript} /> : ''}
    </head>
+
    <body class="flex flex-col min-h-screen">
       <div class="flex-grow">
          <Header />
