@@ -24,6 +24,7 @@ jobs:
               aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
               aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
               aws-region: eu-west-2
+
          - uses: actions/checkout@v3
 
          - name: Create .env file
@@ -36,11 +37,11 @@ jobs:
               node-version: ${{ matrix.node-version }}
               cache: 'npm'
 
-         - run: npm ci # Using npm ci for a clean install based on package-lock
-         
+         - run: npm ci
+
          - name: Generate Sitemap
-            run: node src/utils/sitemap.js
-            env:
+           run: node src/utils/sitemap.js
+           env:
               PUBLIC_STORYBLOK_TOKEN: ${{ secrets.PUBLIC_STORYBLOK_TOKEN }}
 
          - run: npx sst deploy --stage prod
