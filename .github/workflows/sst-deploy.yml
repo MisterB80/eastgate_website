@@ -37,5 +37,10 @@ jobs:
               cache: 'npm'
 
          - run: npm ci # Using npm ci for a clean install based on package-lock
+         
+         - name: Generate Sitemap
+            run: node src/utils/sitemap.js
+            env:
+              PUBLIC_STORYBLOK_TOKEN: ${{ secrets.PUBLIC_STORYBLOK_TOKEN }}
 
          - run: npx sst deploy --stage prod
