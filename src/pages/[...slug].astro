@@ -34,7 +34,7 @@ function getMetaData(story: any): MetaData {
       };
    } else {
       return {
-         title: `Eastgate Digital - ${story.name}`,
+         title: story.full_slug === 'home' ? `Eastgate Digital` : `Eastgate Digital - ${story.name}`,
          description: 'Your technology partner for the modern web. Helping you to grow your ideas, concepts and processes.',
          image: `${Astro.url.origin}/eastgate_logo.png`, // A generic image for non-blog pages
       };
