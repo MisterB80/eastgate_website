@@ -6,7 +6,7 @@ import SectionHeader from '../components/SectionHeader.astro';
 const { blok } = Astro.props;
 ---
 
-<section {...storyblokEditable(blok)}>
+<section {...storyblokEditable(blok)} id="team">
    <div class="pattern-graph-secondary-500/30 py-10">
       <div class="">
          <SectionHeader heading={blok.heading} colour="secondary" />
