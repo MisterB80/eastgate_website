@@ -29,7 +29,7 @@ const gaScript = `
    <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width" />
-      <link rel="icon" type="image/x-icon" href="/favicon.svg" />
+      <link rel="icon" type="image/x-icon" href="/favicon.svg" sizes="48x48" />
 
       <title>{metaData.title}</title>
       <meta name="description" content={metaData.description} />
@@ -44,6 +44,16 @@ const gaScript = `
       <meta name="twitter:title" content={metaData.title} />
       <meta name="twitter:description" content={metaData.description} />
       <meta name="twitter:image" content={metaData.image} />
+
+      <!-- Structured Data -->
+      <script type="application/ld+json">
+         {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "url": "https://www.eastgatedigital.co.uk",
+            "logo": "https://www.eastgatedigital.co.uk/eastgate-digital-icon.png"
+         }
+      </script>
 
       {!isDev && gaTrackingId ? <Fragment set:html={gaScript} /> : ''}
    </head>
