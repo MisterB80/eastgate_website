@@ -3,10 +3,15 @@ import { storyblokEditable } from '@storyblok/astro';
 import twitterIcon from '../icons/x.svg?raw';
 import githubIcon from '../icons/github.svg?raw';
 import linkedinIcon from '../icons/linkedin.svg?raw';
+import blueskyIcon from '../icons/bluesky.svg?raw';
 
 const { blok } = Astro.props;
 
 let socials = [];
+
+if (blok.bluesky) {
+   socials.push({ icon: blueskyIcon, link: blok.bluesky });
+}
 
 if (blok.twitter) {
    socials.push({ icon: twitterIcon, link: blok.twitter });
